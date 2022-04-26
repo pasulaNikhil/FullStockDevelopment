@@ -1,0 +1,40 @@
+<h3 class="mb-3 text-center">Add Item</h3>
+<div class="container">
+    <form #productfromn ngFrom >
+        <div class="form-group">
+            <label for="productName">Item Name:</label>
+            <input required minlength="3" type="text" class="form-control" name="productName" [(ngModel)]="product.productName" ngModel #productName ="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="type">Item Type:</label>
+            <input required  type="text" class="form-control" name="type" [(ngModel)]="product.type"ngModel #type ="ngModel"placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="width">width:</label>
+            <input required minlength="3" type="text" class="form-control" name="width" [(ngModel)]="product.width"ngModel #width ="ngModel" >
+        </div>
+        <div class="form-group">
+            <label for="height">Height:</label>
+            <input required type="text" class="form-control" name="height" [(ngModel)]="product.height"ngModel #height ="ngModel"  >
+        </div>
+        <div class="form-group">
+            <label for="desc">Descrption:</label>
+            <input required minlength="3" type="text" class="form-control" name="desc" [(ngModel)]="product.desc"  ngModel #desc ="ngModel" >
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label> 
+            <input required  type="text" class="form-control" name="price" [(ngModel)]="product.price"ngModel #price="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="productimage">Image Name:</label>
+            <input required minlength="3" type="text" class="form-control" name="productimage"[(ngModel)]="product.productimage" ngModel #image="ngModel">        
+        </div>
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <input required minlength="3" type="text" class="form-control" name="rating"[(ngModel)]="product.rating" ngModel #image="ngModel">        
+        </div>
+        <br>
+        <input type="submit" class="btn btn-success btn-lg btn-block"(click)="additem()" value="Add Item"/>|  
+        <input type="reset" class="btn btn-secondary btn-lg btn-block" value="clear"/>
+    </form>
+</div>
