@@ -1,0 +1,50 @@
+<div class="bootstrap-wrapper">
+  <div class="container" style="margin-top: 1rem">
+    <div class="row">
+      <div class="col-md-6 form-container offset-md-3">
+        <div class="container text-center">
+          <img src="../../../assets/navicon.png" alt="" />
+        </div>
+        <h1 class="text-center mt-3">SIGN IN AS ADMIN</h1>
+
+        <!-- {{ loginData | json }} -->
+        <div class="container" style="margin-top: 1rem">
+          <form (ngSubmit)="login()">
+            <!-- username -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input
+                [(ngModel)]="loginData.username"
+                name="username"
+                matInput
+                placeholder="username"
+                required
+              />
+            </mat-form-field>
+            <!-- /username -->
+
+            <!-- password -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input
+                [(ngModel)]="loginData.password"
+                type="password"
+                name="password"
+                matInput
+                placeholder="password"
+                required
+              />
+            </mat-form-field>
+            <!-- /password -->
+
+            <div class="container text-center">
+              <button type="submit" mat-raised-button color="primary">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

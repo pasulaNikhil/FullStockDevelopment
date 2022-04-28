@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-list>
+    <h2 mat-subheader style="font-size: 1.5rem" class="text-center">
+      All Categories
+    </h2>
+    <mat-list-item *ngFor="let c of categories">
+      <mat-icon mat-list-icon>category</mat-icon>
+      <div mat-line style="font-weight: 400">{{ c.name.toUpperCase() }}</div>
+      <div>
+        <button (click)="update(c)" class="mr10" mat-raised-button>
+          <mat-icon color="primary" mat-list-icon>edit</mat-icon>
+        </button>
+      </div>
+      <div>
+        <button (click)="delete(c)" mat-raised-button color="error">
+          <mat-icon mat-list-icon>delete</mat-icon>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+  <div class="container text-center mt20 mb20">
+    <button routerLink="/admin/add-category" mat-raised-button color="primary">
+      Add Category
+    </button>
+  </div>
+</mat-card>

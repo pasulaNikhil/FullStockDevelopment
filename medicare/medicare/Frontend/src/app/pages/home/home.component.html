@@ -1,0 +1,50 @@
+<div class="container-fluid hero">
+  <div class="container">
+    <div class="text-center button">
+      <button mat-raised-button color="primary" routerLink="/products">
+        Shop Now
+      </button>
+    </div>
+  </div>
+</div>
+<div class="container mt-5 mb-5">
+  <h2 class="text-center">Featured Products</h2>
+
+  <div class="row mt-5">
+    <div *ngFor="let p of products" class="col-md-4 mt-1 mb-1 pb-1">
+      <mat-card>
+        <div class="text-center">
+          <img
+            class="p-img pt-3"
+            mat-card-image
+            src="{{ baseUrl + '/images/' + p.imageName }}"
+          />
+        </div>
+
+        <div class="content ml-4">
+          <mat-card-title class="p-title">{{
+            p.name | titlecase
+          }}</mat-card-title>
+
+          <mat-card-title class="p-price">
+            {{ p.category.name }}</mat-card-title
+          >
+          <mat-card-title class="p-price">
+            &#8377; {{ p.price }}</mat-card-title
+          >
+
+          <mat-card-title class="p-price"> {{ p.brand }}</mat-card-title>
+        </div>
+        <div class="text-center mt-1 mb-1">
+          <button
+            mat-raised-button
+            color="primary"
+            [routerLink]="['/products', p.id]"
+          >
+            View more
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+<mat-card class="card">
+  <div class="bootstrap-wrapper">
+    <div class="container">
+      <h2
+        class="text-center mt20 mt-5 mb20"
+        style="font-size: 2rem; font-weight: 300"
+        mat-card-title
+      >
+        {{ product.id === 0 ? "Add" : "Update" }} Product
+      </h2>
+
+      <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+          <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input
+                required
+                type="text"
+                name="name"
+                [(ngModel)]="product.name"
+                matInput
+                placeholder="Enter name"
+              />
+            </mat-form-field>
+
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea
+                rows="8"
+                name="description"
+                [(ngModel)]="product.description"
+                matInput
+                placeholder="Enter description"
+              ></textarea>
+            </mat-form-field>
+
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="w100" appearance="outline">
+                  <mat-label>Price</mat-label>
+                  <input
+                    required
+                    type="number"
+                    name="price"
+                    [(ngModel)]="product.price"
+                    matInput
+                    placeholder="Enter price"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="w100" appearance="outline">
+                  <mat-label>Stock count</mat-label>
+                  <input
+                    required
+                    type="number"
+                    name="stockCount"
+                    [(ngModel)]="product.stockCount"
+                    matInput
+                    placeholder="Enter stock count"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="w100" appearance="outline">
+                  <mat-label>weight</mat-label>
+                  <input
+                    required
+                    type="number"
+                    name="weight"
+                    [(ngModel)]="product.weight"
+                    matInput
+                    placeholder="Enter weight in gms"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="w100" appearance="fill">
+                  <mat-label>Category</mat-label>
+                  <mat-select
+                    required
+                    name="categoryId"
+                    [(ngModel)]="product.categoryId"
+                  >
+                    <mat-option *ngFor="let c of categories" [value]="c.id">
+                      {{ c.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Brand</mat-label>
+              <input
+                required
+                type="text"
+                name="brand"
+                [(ngModel)]="product.brand"
+                matInput
+                placeholder="Enter brand"
+              />
+            </mat-form-field>
+
+            <div *ngIf="product.id === 0">
+              <label for="image" class="mr-2">Image :</label>
+              <input
+                name="image"
+                type="file"
+                (change)="onImageUpload($event)"
+                accept="image/*"
+              />
+              <span style="font-size: 10px; margin-left: -10%">
+                *Images once uploaded can't be changed
+              </span>
+            </div>
+
+            <div class="container text-center mt20 mb20">
+              <button mat-raised-button color="primary">
+                {{ product.id === 0 ? "Add" : "Update" }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>

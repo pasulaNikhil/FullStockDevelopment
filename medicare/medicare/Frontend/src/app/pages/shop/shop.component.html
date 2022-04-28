@@ -1,0 +1,109 @@
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 offset-md-1">
+        <mat-card class="sidebar mt-3">
+          <div class="mt-5 mb-3">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Search</mat-label>
+              <input
+                (keyup)="onSearch()"
+                name=" medicine"
+                [(ngModel)]="searchQuery"
+                matInput
+                placeholder="search medicine"
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="filters">
+            <h3 class="mb-1 ml-2">Filters:</h3>
+            <div>
+              <button
+                class="ml-1 mr-1 mb-1"
+                (click)="sortPriceInc()"
+                mat-stroked-button
+              >
+                Price &uarr;
+              </button>
+              <button
+                (click)="sortNameAZ()"
+                class="ml-1 mr-1 mb-1"
+                mat-stroked-button
+              >
+                A-Z &uarr;
+              </button>
+            </div>
+            <div>
+              <button
+                class="ml-1 mr-1"
+                (click)="sortPriceDec()"
+                mat-stroked-button
+              >
+                Price &darr;
+              </button>
+              <button
+                (click)="sortNameZA()"
+                class="ml-1 mr-1"
+                mat-stroked-button
+              >
+                A-Z &darr;
+              </button>
+            </div>
+          </div>
+          <hr />
+
+          <mat-action-list>
+            <button (click)="onCategoryChange(0)" mat-list-item>
+              All Categories
+            </button>
+            <div *ngFor="let c of categories" class="categories">
+              <button (click)="onCategoryChange(c.id)" mat-list-item>
+                {{ c.name }}
+              </button>
+            </div>
+          </mat-action-list>
+        </mat-card>
+      </div>
+      <div class="col-md-8">
+        <div class="row mt-3">
+          <div *ngFor="let p of products" class="col-md-4 mt-1 mb-1 pb-1">
+            <mat-card>
+              <div class="text-center">
+                <img
+                  class="p-img pt-3"
+                  mat-card-image
+                  src="{{ baseUrl + '/images/' + p.imageName }}"
+                />
+              </div>
+
+              <div class="content ml-4">
+                <mat-card-title class="p-title">{{
+                  p.name | titlecase
+                }}</mat-card-title>
+
+                <mat-card-title class="p-price">
+                  {{ p.category.name }}</mat-card-title
+                >
+                <mat-card-title class="p-price">
+                  &#8377; {{ p.price }}</mat-card-title
+                >
+
+                <mat-card-title class="p-price"> {{ p.brand }}</mat-card-title>
+              </div>
+              <div class="text-center mt-1 mb-1">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  [routerLink]="['/products', p.id]"
+                >
+                  View more
+                </button>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

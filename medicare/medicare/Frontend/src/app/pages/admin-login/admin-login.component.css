@@ -1,0 +1,22 @@
+.full-width {
+  width: 100%;
+}
+.form-container {
+  margin-top: 5%;
+  margin-bottom: 2%;
+  padding: 3% 0;
+  background-color: white;
+  border-radius: 2%;
+}
+@media only screen and (max-width: 768px) {
+  .form-container {
+    margin: 20% 0;
+  }
+}
+img {
+  padding: 5px; /* Some padding */
+  width: 25%; /* Set a small width */
+}
+button {
+  margin-right: 2%;
+}

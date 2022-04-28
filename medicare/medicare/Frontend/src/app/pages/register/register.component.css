@@ -1,0 +1,18 @@
+.full-width {
+  width: 100%;
+}
+.form-container {
+  margin-bottom: 2%;
+  padding: 3% 0;
+  background-color: white;
+  border-radius: 2%;
+}
+img {
+  border: 1px solid rgb(253, 250, 250); /* Gray border */
+  border-radius: 100%; /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 25%; /* Set a small width */
+}
+button {
+  margin-right: 2%;
+}

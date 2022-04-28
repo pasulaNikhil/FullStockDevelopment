@@ -1,0 +1,87 @@
+<div class="container mt-3">
+  <form (ngSubmit)="onCategoryChange()">
+    <div class="row">
+      <div class="col-md-2 mr-3">
+        <mat-form-field class="w100" appearance="fill">
+          <mat-label>Category</mat-label>
+          <mat-select name="categoryId" [(ngModel)]="categoryId">
+            <mat-option value="0"> All categories </mat-option>
+            <mat-option *ngFor="let c of categories" [value]="c.id">
+              {{ c.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-3 pt-2">
+        <button mat-raised-button color="primary">Filter</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="mat-elevation-z8 mt-3">
+  <table mat-table [dataSource]="dataSource">
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let product">{{ product.id }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let product">{{ product.name }}</td>
+    </ng-container>
+
+    <!-- category  Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>Category</th>
+      <td mat-cell *matCellDef="let product">{{ product.category.name }}</td>
+    </ng-container>
+
+    <!-- stock count  Column -->
+    <ng-container matColumnDef="stockCount">
+      <th mat-header-cell *matHeaderCellDef>Stock Count</th>
+      <td mat-cell *matCellDef="let product">{{ product.stockCount }}</td>
+    </ng-container>
+
+    <!-- price   Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let product">{{ product.price }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef>Weight</th>
+      <td mat-cell *matCellDef="let product">{{ product.weight }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef>Update</th>
+      <td mat-cell *matCellDef="let product">
+        <button (click)="update(product)" class="mr10" mat-raised-button>
+          <mat-icon color="primary" mat-list-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let product">
+        <button
+          (click)="delete(product.id, product.name)"
+          mat-raised-button
+          color="error"
+        >
+          <mat-icon mat-list-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

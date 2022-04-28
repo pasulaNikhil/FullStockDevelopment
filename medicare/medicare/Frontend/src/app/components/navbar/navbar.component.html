@@ -1,0 +1,66 @@
+<mat-toolbar class="navbar" color="primary" onload="change()">
+  <button mat-button routerLink="/">
+    <img class="navicon" src="../../../assets/navicon.png" />
+    <span class="title">MEDICARE</span>
+  </button>
+
+  <span class="example-spacer"></span>
+
+  <a style="font-size: 1rem" mat-button routerLink="/products">
+    <button mat-icon-button class="example-icon login-icon">
+      <mat-icon>store</mat-icon>
+    </button>
+    <span> Shop</span>
+  </a>
+
+  <a
+    style="font-size: 1rem"
+    *ngIf="isLoggedIn"
+    mat-button
+    routerLink="/products/cart"
+  >
+    <button mat-icon-button class="example-icon login-icon">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+    <span> Cart</span>
+  </a>
+
+  <a
+    *ngIf="isLoggedIn"
+    routerLink="/products/orders"
+    mat-button
+    style="font-size: 1rem"
+  >
+    <button mat-icon-button class="example-icon">
+      <mat-icon>shopping_basket_icon</mat-icon>
+    </button>
+    <span>My Orders</span>
+  </a>
+
+  <a style="font-size: 1rem" *ngIf="!isLoggedIn" mat-button routerLink="/login">
+    <button mat-icon-button class="example-icon login-icon">
+      <mat-icon>login</mat-icon>
+    </button>
+    <span> Login</span>
+  </a>
+
+  <a
+    *ngIf="!isLoggedIn"
+    mat-button
+    style="font-size: 1rem"
+    routerLink="/signup"
+    routerLinkActive="router-link-active"
+  >
+    <button mat-icon-button class="example-icon">
+      <mat-icon>app_registration</mat-icon>
+    </button>
+    <span>Register</span>
+  </a>
+
+  <a *ngIf="isLoggedIn" (click)="logout()" mat-button style="font-size: 1rem">
+    <button mat-icon-button class="example-icon">
+      <mat-icon>logout</mat-icon>
+    </button>
+    <span>Logout</span>
+  </a>
+</mat-toolbar>

@@ -1,0 +1,37 @@
+<mat-card class="card">
+  <div class="bootstrap-wrapper">
+    <div class="container">
+      <h2
+        class="text-center mt20 mt-5 mb20"
+        style="font-size: 2rem; font-weight: 300"
+        mat-card-title
+      >
+        {{ category.id === 0 ? "Add" : "Update" }} Category
+      </h2>
+
+      <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+          <form (ngSubmit)="onSubmit()">
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input
+                required
+                type="text"
+                name="name"
+                [(ngModel)]="category.name"
+                matInput
+                placeholder="Enter name"
+              />
+            </mat-form-field>
+
+            <div class="container text-center mt20 mb20">
+              <button mat-raised-button color="primary">
+                {{ category.id === 0 ? "Add" : "Update" }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>
